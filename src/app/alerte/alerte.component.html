@@ -1,0 +1,174 @@
+<!-- <app-navbarre></app-navbarre>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulaire d'Alerte de Défaut</title>
+<link rel="stylesheet" href="alerte.component.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Formulaire d'Alerte de Défaut</h2>
+  <form>
+    <div class="form-group" >
+      <label for="technicien">Dépanneur :</label>
+      <select id="technicien" name="technicien" >
+        <option value="technicien1" [(ngModel)]="technicien">Technicien 1</option>
+        <option value="technicien2">Technicien 2</option>
+        <option value="technicien3">Technicien 3</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="poste">Poste :</label>
+      <input type="text" id="poste" name="poste">
+    </div>
+    <div class="form-group">
+      <label for="type-defaut">Type de Défaut :</label>
+      <select id="type-defaut" name="type-defaut">
+        <option value="electrique">Électrique</option>
+        <option value="mecanique">Mécanique</option>
+        <option value="electronique">Électronique</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="cause-defaut">Cause de Défaut :</label>
+      <input type="text" id="cause-defaut" name="cause-defaut">
+    </div>
+    <div class="form-group">
+      <label for="description">Description :</label>
+      <textarea id="description" name="description" rows="5"></textarea>
+    </div>
+    <div class="button-group" >
+      <button type="submit" class="declare">Déclarer</button>
+      <button type="button" class="print" onclick="window.print()">Imprimer</button>
+      <button type="reset" class="cancel">Annuler</button>
+
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
+
+
+
+
+<app-finbarre></app-finbarre> -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de Composants</title>
+    <link rel="stylesheet" href="alerte.component.css">
+</head>
+<body>
+  <app-navbarre></app-navbarre>
+    <div class="container">
+      
+        <fieldset>
+            <legend>Alerte Defaux</legend>
+            <form (submit)="addAlerte()">
+                <!-- <div class="form-group">
+                    <label for="nom">Nom Dépanneur:</label>
+                    <input type="text" id="depanneur" placeholder="depanneur" [(ngModel)]="nomDepanneur" name="nomDepanneur" required>
+                </div> -->
+                <div >
+                  <label for="nom">Nom:</label>
+                  <input class="damd" id="nom" type="text" name="nom" [(ngModel)]="surname" placeholder="{{ surname }}" readonly>
+                </div>
+                <div>
+                  <label for="prenom">Prénom:</label>
+                  <input class="damd" id="prenom" type="text" name="prenom" [(ngModel)]="username" placeholder="{{ username }}" readonly>
+                </div>
+                <div>
+                  <label for="matricule">matricule:</label>
+                  <input class="damd" id="matricule" type="text" name="matricule" [(ngModel)]="matricule" placeholder="{{ matricule }}" readonly>
+                </div>
+              
+                <!-- <div class="form-group">
+                    <label for="prenom">Poste:</label>
+                    <input type="text" id="poste" placeholder="poste" [(ngModel)]="poste" name="poste" required>
+                </div> -->
+                <label for="poste">Poste de travaille:</label>
+                <select id="poste" name="poste" [(ngModel)]="poste" required>
+                  <option>S15 Integ</option>
+                  <option>S15 Vague</option>
+                  <option>S36 Integ </option>
+                  <option>S36 Vague</option>
+                  <option>Ibis/Dc</option>
+                  <option>Trad</option>
+                </select>
+                <!-- <div class="form-group">
+                    <label for="reference">Type de Défaut:</label>
+                    <input type="text" id="typeDefault" placeholder="typeDefault" [(ngModel)]="typedefaut" name="typedefaut" required>
+                </div> -->
+                <label for="typeDefault">Type de Défaut:</label>
+                <select id="typeDefault" name="typedefaut" [(ngModel)]="typedefaut" placeholder="typeDefault"  required>
+                  <option>Arrachée</option>
+                  <option>Rebut</option>
+                  <option>Mq Soudure </option>
+                  <option>Soudure sèche</option>
+                  <option>Remonte éteint</option>
+                  <option>Mal Assemblé</option>
+                </select>
+             
+                <div class="form-group">
+                  <label for="employee">Sélectionnez Service :</label>
+                  <select id="employee" name="fonction"  [(ngModel)]="fonction" required>
+                    <option  [value]="">Technicien</option>
+                    <option  [value]="">Operateur</option>
+
+
+                  </select>
+              </div>
+                <div class="form-group">
+                    <label for="quantite">Description:</label>
+                    <input type="text" id="description" placeholder="description" [(ngModel)]="description" name="description" required>
+                </div>
+              
+                
+                <button type="submit">Envoyer Demande alerte</button>
+                
+
+
+            </form>
+            <button class="cancel" (click)="supprimeralertes()">Supprimer tous les alertes</button>
+            
+        </fieldset>
+    </div>
+    <fieldset *ngIf="alertes.length > 0">
+      <legend>Liste des Alertes</legend>
+      <table>
+        <thead>
+          <tr>
+            <th>Nom Dépanneur</th>
+            <th>Poste</th>
+            <th>Type de Défaut</th>
+            <th>Fonction</th>
+            <th>Description</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alerte of alertes">
+            <td>{{ alerte.nomDepanneur }}</td>
+            <td>{{ alerte.poste }}</td>
+            <td>{{ alerte.typedefaut }}</td>
+            <td>{{ alerte.fonction }}</td>
+            <td>{{ alerte.description }}</td>
+             </tr>
+        </tbody>
+      </table>
+    </fieldset>
+
+  
+
+    <app-finbarre></app-finbarre>
+</body>
+</html>

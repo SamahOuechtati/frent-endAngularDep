@@ -1,0 +1,162 @@
+
+
+  <app-navbarre></app-navbarre>
+
+<div class="container">
+  <fieldset class="form-section">
+    <legend>Créer un Utilisateur</legend>
+    <form (ngSubmit)="addEmploye()">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" placeholder="Nom" [(ngModel)]="nom" name="nom" required>
+      
+      <label for="prenom">Prénom</label>
+      <input type="text" id="prenom" placeholder="Prénom" [(ngModel)]="prenom" name="prenom" required>
+      
+      <label for="fonction">Fonction</label>
+      <input type="text" id="fonction" placeholder="Fonction" [(ngModel)]="fonction" name="fonction" required>
+      
+      <label for="datenaissance">Date de Naissance</label>
+      <input type="date" id="datenaissance" placeholder="Date de Naissance" [(ngModel)]="datenaissance" name="datenaissance" required>
+      
+      <label for="cin">Matricule</label>
+      <input type="text" id="cin" placeholder="Matricule" [(ngModel)]="cin" name="cin" required>
+      
+      <label for="typeUtilisation">Utiliser en mode</label>
+      <select id="typeUtilisation" name="typeUtilisation" [(ngModel)]="typeUtilisation" required>
+        <option>Administrateur</option>
+        <option>User</option>
+      </select>
+      
+      <button type="submit">Ajouter Employé</button>
+    </form>
+  </fieldset>
+  <div class="container">
+  <fieldset class="table-section">
+    <h2>Liste Des Employes</h2>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Fonction</th>
+          <th>Date de Naissance</th>
+          <th>Matricule</th>
+          <th>En Mode</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let employe of employes">
+          <td>{{ employe.idEmploye }}</td>
+          <td>{{ employe.nom }}</td>
+          <td>{{ employe.prenom }}</td>
+          <td>{{ employe.fonction }}</td>
+          <td>{{ employe.datenaissance }}</td>
+          <td>{{ employe.cin }}</td>
+          <td>{{ employe.typeUtilisation }}</td>
+          <td>
+            <button (click)="supprimerEmploye(employe.cin)" >Supprimer</button>
+            <button (click)="chargerDetailsEmploye(employe)">Modifier</button>
+            
+          </td>
+        </tr>
+        <button (click)="exportToExcelEmp()">Imprimer en Exel</button>
+      </tbody>
+    </table>
+    </fieldset>
+  </div>
+ 
+
+  <fieldset *ngIf="employeSelectionne" class="form-section">
+    <legend>Modifier l'employé</legend>
+    <form (ngSubmit)="modifierEmploye()">
+      <!-- Remplir le formulaire avec les détails de l'employé sélectionné -->
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" [(ngModel)]="employeSelectionne.nom" name="nom" required>
+      <label for="prenom">Prenom</label>
+      <input type="text" id="prenom" [(ngModel)]="employeSelectionne.prenom" name="prenom" required>
+      <label for="datenaissance">datenaissance</label>
+      <input type="date" id="datenaissance" [(ngModel)]="employeSelectionne.datenaissance" name="datenaissance" required>
+      <label for="fonction">fonction</label>
+      <input type="text" id="fonction" [(ngModel)]="employeSelectionne.fonction" name="fonction" required>
+      <label for="typeUtilisation">Utiliser en mode</label>
+      <select id="typeUtilisation" name="typeUtilisation" [(ngModel)]="typeUtilisation" required>
+        <option>Administrateur</option>
+        <option>User</option>
+      </select>
+      <!-- Autres champs du formulaire -->
+  
+      <button type="submit">Enregistrer</button>
+    </form>
+  </fieldset>
+  <div class="container">
+  <h2>Liste Des Passations</h2>
+  <fieldset class="table-section">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Tâche</th>
+          <th>Description</th>
+          <th>Employé</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pass of passations">
+          <td>{{ pass.idPassation }}</td>
+          <td>{{ pass.tache }}</td>
+          <td>{{ pass.description }}</td>
+          <td>{{ pass.ouvrier }}</td>
+          <td>
+            <button (click)="supprimePassation(pass.idPassation)">Supprimer</button>
+            <button>Modifier</button>
+          </td>
+        </tr>
+        <button (click)="exportToExcelPass()">Imprimer en Exel</button>
+        <button (click)="supprimettpassation()">supprimer tous les passations</button>
+
+      </tbody>
+    </table>
+  </fieldset>
+</div>
+<div class="container">
+  <h2>Liste Des Alertes</h2>
+  <fieldset class="table-section">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom Dépanneur</th>
+          <th>Poste</th>
+          <th>Description</th>
+          <th>Fonction</th>
+          <th>Type de Défaut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pass of alertes">
+          <td>{{ pass.idAlerte }}</td>
+          <td>{{ pass.nomDepanneur }}</td>
+          <td>{{ pass.poste }}</td>
+          <td>{{ pass.description }}</td>
+          <td>{{ pass.fonction }}</td>
+          <td>{{ pass.typedefaut }}</td>
+          <td>
+            <button (click)="supprimeralerte(pass.idAlerte)">Supprimer</button>
+          </td>
+          
+
+        </tr>
+        <button (click)="exportToExcelAlerte()">Imprimer en Exel</button>
+        <button (click)="supprimettalertes()">supprimer tous les alertes</button>
+
+      </tbody>
+    </table>
+  </fieldset>
+</div>
+</div>
+
+<app-finbarre></app-finbarre>

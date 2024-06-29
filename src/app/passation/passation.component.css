@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  .damd{
+    background-color: rgba(212, 214, 215, 0.9);
+
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  .button-group {
+    text-align: center;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button.cancel {
+    background-color: #dc3545;
+  }
+  
+  button.cancel:hover {
+    background-color: #c82333;
+  }
+  .datej {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd; /* Bordure autour du tableau */
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    border: 1px solid #ddd; /* Bordure pour chaque cellule */
+    padding: 8px; /* Espacement intérieur des cellules */
+    text-align: left; /* Alignement du texte à gauche */
+  }
+  
+  .styled-table th {
+    background-color: #f2f2f2; /* Couleur de fond pour les cellules d'en-tête */
+  }
+  
+  
+  

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Classique</title>
+  <link rel="stylesheet" href="navbarre.component.css">
+ 
+</head>
+<body>
+  <header>
+    <h1>Matricule:{{ cin }} </h1>
+    <h1>Prenom:{{ prenom }}</h1> 
+    <h1>Nom:{{ nom }}</h1>
+
+    <h4 class="vert">Mode: {{ typeUtilisation }} </h4>
+    <h2>SAGEMCOM - Gestion des Interventions</h2>
+    <nav>
+      <ul>
+        <li *ngIf="typeUtilisation === 'Administrateur'"><a href="employe">Les Employe</a></li>
+        <li><a href="alerte">Alerte</a></li>
+        <li><a href="passation">Passation</a></li>
+        <li><a href="/demandecompoosant">Demande Composant</a></li>
+        <li><a href="/Home">Déconnecter</a></li>
+      </ul>
+    </nav>
+    <div class="date-time-container">
+      <p class="date">Date: {{ date | date: 'dd/MM/yyyy' }}</p>
+      <p class="heure">Heure: {{ time | date: 'HH:mm:ss' }}</p>
+    </div>
+  </header>
+</body>
+</html>

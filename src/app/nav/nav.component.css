@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  header h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 30px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  .animated-text {
+    font-size: 40px; /* Taille de texte */
+    font-weight: bold; /* Texte en gras */
+    color: #333; /* Couleur du texte */
+    transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
+    display: inline-block; /* Pour permettre les transformations */
+}
+
+/* Effet d'animation au survol de la souris */
+.animated-text:hover {
+    transform: scale(1.2); /* Agrandit le texte */
+    color: #3453e9; /* Change la couleur du texte */
+}
+
+/* Centrer le texte au milieu de la page */
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Hauteur de la page complète */
+}
+button {
+  display: inline-flex; /* Pour aligner l'icône et le texte */
+  align-items: center; /* Aligner verticalement l'icône et le texte */
+  padding: 10px 20px; /* Espacement interne */
+  margin: 10px; /* Espacement externe */
+  font-size: 18px; /* Taille de la police */
+  border: none; /* Aucun bord */
+  border-radius: 8px; /* Coins arrondis */
+  background-color: #4CAF50; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  cursor: pointer; /* Pointeur de souris */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour les effets */
+}
+
+/* Effet d'animation au survol de la souris */
+button:hover {
+  background-color: #45a049; /* Changer la couleur de fond */
+  transform: scale(1.05); /* Agrandir légèrement le bouton */
+}
+
+/* Styles pour les icônes */
+i {
+  margin-right: 10px; /* Espacement à droite de l'icône */
+}
+  

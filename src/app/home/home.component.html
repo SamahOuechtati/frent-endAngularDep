@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="home.component.css">
+  <title>Login</title>
+  <style>
+ 
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="https://img.freepik.com/vecteurs-libre/illustration-du-concept-connexion_114360-739.jpg" alt="Logo">
+    <h2>Login</h2>
+    <form class="login-form" >
+      <input type="text" placeholder="Nom " name="surname " [(ngModel)]="surname " required>
+      <input type="text" placeholder="Prenom " name="username" [(ngModel)]="username" required>      
+      <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required>
+      <button type="submit" (click)="login()">Login</button>
+    
+    </form>
+  
+  </div>
+</body>
+</html>
+
+
+<app-finbarre></app-finbarre>

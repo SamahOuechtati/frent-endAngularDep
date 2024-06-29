@@ -1,0 +1,100 @@
+   /* Styles pour le conteneur principal */
+   body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Styles pour l'en-tête */
+  header {
+    background-color: #78c3c3;
+    color: #164f06;
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  /* Styles pour la barre de navigation */
+  nav {
+    margin-top: 20px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  li {
+    margin: 0 10px;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  a:hover {
+    color: #ff4081;
+    background-color: #fff;
+  }
+
+  /* Styles spécifiques pour chaque lien de la barre de navigation */
+  a[href="alerte"] {
+    background-color: #ff4081;
+  }
+
+  a[href="passation"] {
+    background-color: #00bcd4;
+  }
+
+  a[href="/demandecompoosant"] {
+    background-color: #8bc34a;
+  }
+
+  a[href="/Home"] {
+    background-color: #ff0000;
+  }
+  a[href="employe"] {
+    background-color: #0b0303;
+  }
+
+  /* Styles pour le conteneur de date et heure */
+  .date-time-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .date,
+  .heure {
+    color: #666;
+  }
+
+  /* Animation pour le titre */
+  h1 {
+    animation: pulse 30s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    20% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

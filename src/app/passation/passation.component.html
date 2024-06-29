@@ -1,0 +1,164 @@
+<!-- passation.component.html -->
+
+<app-navbarre></app-navbarre>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passation de Tâches</title>
+    <link rel="stylesheet" href="passation.component.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Passation de Tâches</h2>
+        <form (ngSubmit)=" addPassation()">
+          
+            <!-- <div>
+                <label for="nom">Nom Dépanneur:</label>
+                <select id="nom" name="nom" [(ngModel)]="nom" required>
+                    <option *ngFor="let employe of employees" [ngValue]="employe.nom">
+                        {{ employe.nom }} 
+                    </option>              
+                </select>
+            </div>
+            <div>
+              <label for="nom">Prenom Dépanneur:</label>
+              <select id="prenom" name="prenom"[(ngModel)]="prenom" required>
+                  <option *ngFor="let employe of employees" [ngValue]="employe.prenom">
+                      {{ employe.prenom }}
+                  </option>              
+              </select>
+          </div> -->
+          <div >
+            <label for="nom">Nom:</label>
+            <input class="damd" id="nom" type="text" name="nom" [(ngModel)]="surname" placeholder="{{ surname }}" readonly>
+          </div>
+          <div>
+            <label for="prenom">Prénom:</label>
+            <input class="damd" id="prenom" type="text" name="prenom" [(ngModel)]="username" placeholder="{{ username }}" readonly>
+          </div>
+          <div>
+            <label for="matricule">matricule:</label>
+            <input class="damd" id="matricule" type="text" name="matricule" [(ngModel)]="matricule" placeholder="{{ matricule }}" readonly>
+          </div>
+          <div class="form-group">
+            <label for="datejour">Date de jour</label>
+            <input type="date" id="datejour" placeholder="{{datejour}}" [(ngModel)]="datejour" name="datejour" required>
+          </div>
+            <!-- <div>
+                <label for="prenom">Prenom Dépanneur:</label>
+                <select id="prenom" name="prenom" [(ngModel)]="prenom" required>
+                    <option *ngFor="let employe of employees" [ngValue]="employe.prenom">
+                        {{ employe.prenom }}
+                    </option>              
+                </select>
+            </div> -->
+            <div class="form-group">
+                <label for="tache">Tâche :</label>
+                <textarea type="text" id="tache" name="tache" [(ngModel)]="tache" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <textarea id="description" name="description" [(ngModel)]="description" rows="5" required></textarea>
+            </div>
+            
+            <label for="ouvrier">Poste de travaille:</label>
+                <select id="ouvrier" name="ouvrier" [(ngModel)]="ouvrier" required>
+                  <option>S15 Integ</option>
+                  <option>S15 Vague</option>
+                  <option>S36 Integ </option>
+                  <option>S36 Vague</option>
+                  <option>Ibis/Dc</option>
+                  <option>Trad</option>
+                </select>
+
+            
+
+            <div class="button-group">
+                <button type="submit" class="send">Envoyer</button>
+                <button type="reset" class="cancel">Annuler</button>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <h2>Passation de Tâches</h2>
+        <form (ngSubmit)="rechercherParDates()">
+          <div class="form-group">
+            <label for="dateDebut">Date de début :</label>
+            <input type="date" id="dateDebut" name="dateDebut" [(ngModel)]="dateDebut" required>
+          </div>
+          <div class="form-group">
+            <label for="dateFin">Date de fin :</label>
+            <input type="date" id="dateFin" name="dateFin" [(ngModel)]="dateFin" required>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="send">Rechercher</button>
+            <button type="reset" class="cancel">Réinitialiser</button>
+          </div>
+        </form>
+      
+   
+    <div class="container">
+        <h2>Recherche des Passations par Ouvrier</h2>
+      
+        <label for="ouvrierSelect">Choisir un ouvrier :</label>
+        <select id="ouvrierSelect" [(ngModel)]="ouvrier" (change)="rechercherParOuvrier()">
+          <option value="">Tous les ouvriers</option>
+          <option>S15 Integ</option>
+          <option>S15 Vague</option>
+          <option>S36 Integ </option>
+          <option>S36 Vague</option>
+          <option>Ibis/Dc</option>
+          <option>Trad</option>
+        </select>
+        
+        <!-- passation.component.html -->
+
+
+  
+      
+        <fieldset class="table-section">
+            <table class="styled-table">
+              <thead>
+                <tr>
+                
+
+                  <th>id</th>
+              
+                  <th>Description</th>
+                  <th>Tâche</th>
+                  <th>Ouvrier</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+
+                <tr *ngFor="let passation of passations" >
+                  <td>{{ passation.idPassation }}</td>
+                  <td>{{ passation.description }}</td>
+                  <td>{{ passation.tache }}</td>
+                  <td>{{ passation.ouvrier }}</td>
+                  <td>{{ passation.datejour }}</td>
+                  <td>
+                    <!-- Boutons d'action (Supprimer et Modifier) -->
+                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </fieldset>
+          
+      </div>
+    </div>
+
+    <app-finbarre></app-finbarre>
+</body>
+
+</html>

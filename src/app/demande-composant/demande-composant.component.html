@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de Composants</title>
+    <link rel="stylesheet" href="demande-composant.component.css">
+</head>
+
+<body>
+    <app-navbarre></app-navbarre>
+    <div class="container">
+        <!-- Section du formulaire de demande -->
+        <fieldset>
+            <legend>Demande de Composants</legend>
+            <form (ngSubmit)="addComposant()" #form="ngForm">
+                <!-- Champ Nom -->
+                <!-- <div>
+                    <h4>Matricule:{{ cin }} </h4>
+                        <h4 name="nom" [(ngModel)]="nom  ">Nom:{{ surname }}</h4>
+                            <h4 name="prenom" [(ngModel)]="prenom">Prenom:{{ username }}</h4>
+                </div> -->
+                <div >
+                   
+                   
+
+                    <div >
+                      <label for="nom">Nom:</label>
+                      <input class="damd" id="nom" type="text" name="nom" [(ngModel)]="nom" placeholder="{{ surname }}" readonly>
+                    </div>
+                    <div>
+                      <label for="prenom">Prénom:</label>
+                      <input class="damd" id="prenom" type="text" name="prenom" [(ngModel)]="prenom" placeholder="{{ username }}" readonly>
+                    </div>
+                    <div>
+                      <label for="matricule">matricule:</label>
+                      <input class="damd" id="matricule" type="text" name="matricule" [(ngModel)]="matricule" placeholder="{{ matricule }}" readonly>
+                    </div>
+                  </div>
+           
+
+                <div class="form-group">
+                    <label for="datejour">Date du jour:</label>
+                    <input type="date" id="datejour" placeholder="Date" [(ngModel)]="datejour" name="datejour" required>
+                </div>
+                <div class="form-group">
+                    <label for="reference">Référence:</label>
+                    <input type="text" id="reference" placeholder="Référence" [(ngModel)]="reference" name="reference" required>
+                </div>
+                <div class="form-group">
+                    <label for="designation">Désignation:</label>
+                    <input type="text" id="designation" placeholder="Désignation" [(ngModel)]="designation" name="designation" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantite">Quantité:</label>
+                    <input type="number" id="quantite" placeholder="Quantité" [(ngModel)]="quantite" name="quantite" required>
+                </div>
+                <div class="form-group">
+                    <label for="cause">Cause:</label>
+                    <input type="text" id="cause" placeholder="Cause" [(ngModel)]="cause" name="cause" required>
+                </div>
+                
+                <!-- Bouton de soumission -->
+                <button type="submit" [disabled]="form.invalid">Envoyer Demande Composant</button>
+            </form>
+        </fieldset>
+    </div>
+    <fieldset class="table-section">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>idDemande</th>
+              <th>nom</th>
+              <th>prenom</th>
+              <th>matricule</th>
+              <th>datejour</th>
+              <th>quantite</th>
+              <th>reference</th>
+              <th>designation</th>
+              <th>cause</th>
+
+
+
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let passation of composant">
+              <td>{{ passation.idDemande }}</td>
+              <td>{{ passation.nom }}</td>
+              <td>{{ passation.prenom }}</td>
+              <td>{{ passation.matricule }}</td>
+              <td>{{ passation.datejour }}</td>
+              <td>{{ passation.quantite }}</td>
+              <td>{{ passation.reference }}</td>
+              <td>{{ passation.designation }}</td>
+              <td>{{ passation.cause }}</td>
+
+
+
+
+
+              <td>
+                <!-- Boutons d'action (Supprimer et Modifier) -->
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </fieldset>
+      <button (click)="exportToExcelPass()">Imprimer en Exel</button>
+
+    <app-finbarre></app-finbarre>
+</body>
+</html>
